@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.4",
   "name": "@forge-builder/base-mcp-server",
-  "version": "1.0.12",
+  "version": "1.0.17",
   "description": "MCP Server for Base — gas prices, block numbers, balances, and bytecode lookups via direct Base RPC calls",
   "author": {
     "name": "Roger",
@@ -38,6 +38,19 @@
     "mcp_config": {
       "command": "node",
       "args": ["${__dirname}/index.js"]
+    }
+  },
+  "_meta": {
+    "org.mpaktrust": {
+      "mtf_version": "0.1",
+      "level": 2,
+      "permissions": {
+        "filesystem": "none",
+        "network": "outbound",
+        "environment": "none",
+        "subprocess": "none",
+        "native": "none"
+      }
     }
   }
 }
