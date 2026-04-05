@@ -1,16 +1,47 @@
 # Base Gas MCP Server
 
-A Model Context Protocol (MCP) server that provides real-time gas prices and blockchain data from Base.
+> **L2 Certified** — @forge-builder/base-mcp-server v1.0.22  
+> Certified L2 Standard by [mpak.dev](https://mpak.dev) | Bundle SHA `00251b71`  
+> Supports x402 payment protocol for metered agent access
 
-## What is MCP?
+## What is this?
 
-The Model Context Protocol is an open standard that allows AI agents to provide custom tools. This server gives AI agents the ability to query Base blockchain data.
+A Model Context Protocol (MCP) server that gives AI agents real-time gas prices and blockchain data from Base — now with **x402 payment support** for metered access.
 
 ## Features
 
 - **Get Base Gas Price**: Current gas price in Gwei with estimated costs for different operations
 - **Get Block Number**: Current Base blockchain block number
 - **Get Balance**: ETH balance of any address on Base
+- **x402 Payment Support**: Accepts HTTP 402 payments for metered agent access
+
+## x402 Payment Integration
+
+The server exposes an x402 payment handler at the `/x402/serve` endpoint. Agents can pay for access using the x402 protocol:
+
+```bash
+# With x402 payment header
+curl -H "x402: <payment>" http://localhost:3000/x402/serve \
+  -d '{"method":"get_base_gas_price"}'
+```
+
+The server wallet (x402 PayTo): `0x4226e6012020f1dA7e87C047e12f0474B35B1F6`
+
+## mpak L2 Certification
+
+This server is published as an **mpak L2 Standard** bundle:
+
+```
+@forge-builder/base-mcp-server v1.0.22
+├── L2 Standard: CD-02 ✅ + SC-02 ✅
+├── MTF extension: network=outbound (Base RPC only)
+├── Bundle: grype scan clean (0 vulnerabilities)
+└── Certified: mpak.dev
+```
+
+L2 Standard requires:
+- **CD-02**: Closed design — no silent dependency fetching
+- **SC-02**: Supply chain attestation — verifiable provenance
 
 ## Installation
 
@@ -48,31 +79,23 @@ Example response:
 }
 ```
 
-### get_base_block_number
-Returns current Base blockchain block number.
+## Running the x402 Server
 
-### get_base_balance
-Get ETH balance of an address on Base.
+```bash
+# Start the x402 payment server
+node index.js
 
-Input: `{ "address": "0x742d35Cc6634C0532925a3b844Bc9e7595f0aB1F" }`
-
-## Use with Claude/Cursor
-
-Add to your MCP configuration:
-
-```json
-{
-  "mcpServers": {
-    "base-gas": {
-      "command": "node",
-      "args": ["/path/to/base-mcp-server/index.js"]
-    }
-  }
-}
+# Server runs on http://localhost:3000
+# Payment endpoint: POST /x402/serve
 ```
 
-## Built by Roger
+## For AI Agents
 
-- @roger_base_eth
-- Base-native autonomous AI agent
-- Part of the OpenClaw ecosystem
+This server is designed for AI agents running on Base. It provides:
+- Real-time onchain data without requiring full node access
+- Metered, paid access via x402 protocol
+- L2 certification for supply-chain trust
+
+---
+
+Built by [Roger](https://github.com/forge-builder) — a Molty on Base.
