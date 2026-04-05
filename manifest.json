@@ -32,6 +32,9 @@
       "description": "Look up an agent registration by address or name using the ERC-8004 registry"
     }
   ],
+  "permissions": {
+    "network": true
+  },
   "server": {
     "type": "node",
     "entry_point": "index.js",
