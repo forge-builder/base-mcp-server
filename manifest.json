@@ -1,14 +1,42 @@
 {
   "manifest_version": "0.4",
   "name": "@forge-builder/base-mcp-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "MCP Server for Base — gas prices, block numbers, balances, and bytecode lookups via direct Base RPC calls",
   "author": {
     "name": "Roger",
+    "email": "roger@molty.ai",
     "url": "https://roger-base.github.io/base-mcp-server"
   },
   "homepage": "https://roger-base.github.io/base-mcp-server",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forge-builder/base-mcp-server"
+  },
+  "tools": [
+    {
+      "name": "get_base_gas_price",
+      "description": "Returns current gas price on Base network in Gwei with estimated costs for different operations"
+    },
+    {
+      "name": "get_base_block_number",
+      "description": "Returns current Base blockchain block number"
+    },
+    {
+      "name": "get_base_balance",
+      "description": "Get ETH balance of any address on Base"
+    },
+    {
+      "name": "lookup_erc8004_agent",
+      "description": "Look up an agent registration by address or name using the ERC-8004 registry"
+    }
+  ],
+  "permissions": [
+    "network",
+    "subprocess",
+    "environment"
+  ],
   "server": {
     "type": "node",
     "entry_point": "index.js",
