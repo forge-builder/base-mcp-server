@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Create GitHub Release (needed for mcpb-pack metadata)
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           draft: false
@@ -25,6 +25,8 @@ jobs:
           generate_release_notes: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Wait for GitHub to index the release artifact
+        run: sleep 15
       - name: Redact CircleCI token from ip-address README before bundling (CQ-01 fix)
         run: |
           TOKEN_FILE="node_modules/ip-address/README.md"
