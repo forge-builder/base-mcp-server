@@ -1,6 +1,6 @@
 {
   "name": "@forge-builder/base-mcp-server",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MCP Server for Base — gas prices, block numbers, balances, and bytecode lookups via direct Base RPC calls",
   "type": "module",
   "main": "index.js",
@@ -11,7 +11,8 @@
     "url": "https://roger-base.github.io/base-mcp-server"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "prepare": "node -e \"const f='node_modules/ip-address/README.md';try{const s=require('fs').readFileSync(f,'utf8').replace(/circle-token=[a-z0-9]+/g,'circle-token=REDACTED');require('fs').writeFileSync(f,s)}catch(e){}\""
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.29.0"

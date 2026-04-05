@@ -13,6 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Postinstall: redact CircleCI token from ip-address README (CQ-01 fix)
+        run: |
+          TOKEN_FILE="node_modules/ip-address/README.md"
+          if [ -f "$TOKEN_FILE" ]; then
+            sed -i 's/circle-token=[a-zA-Z0-9]\+/circle-token=REDACTED/g' "$TOKEN_FILE"
+          fi
       - uses: NimbleBrainInc/mcpb-pack@v2
         with:
           directory: .
