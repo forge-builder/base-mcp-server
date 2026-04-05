@@ -1,4 +1,5 @@
 {
+  "$schema": "https://cdn.mpak.dev/schemas/2025-10-19/mpak.json",
   "name": "@forge-builder/base-mcp-server",
   "version": "1.0.0",
   "description": "MCP Server for Base — gas prices, block numbers, balances, and bytecode lookups via direct Base RPC calls",
