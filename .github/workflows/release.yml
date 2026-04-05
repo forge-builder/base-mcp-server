@@ -1,8 +1,9 @@
 name: Release
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v*'
   workflow_dispatch:
 
 permissions:
@@ -16,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Postinstall: redact CircleCI token from ip-address README (CQ-01 fix)
+      - name: Redact CircleCI token from ip-address README before bundling (CQ-01 fix)
         run: |
           TOKEN_FILE="node_modules/ip-address/README.md"
           if [ -f "$TOKEN_FILE" ]; then
