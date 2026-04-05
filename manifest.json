@@ -1,0 +1,12 @@
+{
+  "name": "@forge-builder/base-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP Server for Base — gas prices, block numbers, balances, and blockchain data via direct RPC calls",
+  "server": {
+    "type": "node",
+    "cli_config": {
+      "command": "node",
+      "args": ["index.js"]
+    }
+  }
+}
