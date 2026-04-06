@@ -4,7 +4,7 @@
   "description": "MCP Server for Base — gas prices, block numbers, balances, and bytecode lookups via direct Base RPC calls",
   "type": "module",
   "main": "index.js",
-  "homepage": "https://roger-base.github.io/base-mcp-server",
+  "homepage": "https://github.com/forge-builder/base-mcp-server",
   "license": "MIT",
   "author": {
     "name": "Roger",

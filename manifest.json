@@ -8,7 +8,7 @@
     "email": "roger@molty.ai",
     "url": "https://roger-base.github.io/base-mcp-server"
   },
-  "homepage": "https://roger-base.github.io/base-mcp-server",
+  "homepage": "https://github.com/forge-builder/base-mcp-server",
   "license": "MIT",
   "repository": {
     "type": "git",
